@@ -19,7 +19,7 @@ echo '{
     "Action": "UPSERT",
     "ResourceRecordSet": {
       "Name": "APPNAME.rdevopsb72.online",
-      "Type": "A",
+      "Type": "CNAME",
       "TTL": 30,
       "ResourceRecords": [{ "Value": "DNSNAME"}]
     }}]
