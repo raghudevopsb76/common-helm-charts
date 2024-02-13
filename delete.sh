@@ -1,1 +1,1 @@
-helm delete ingress
+helm delete nginx-ingress
