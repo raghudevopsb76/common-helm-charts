@@ -5,7 +5,7 @@ helm upgrade -i  nginx-ingress ingress-nginx/ingress-nginx -f nginx-ingress/valu
 
 kubectl create namespace argocd
 #kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
-kubectl apply -f argocd/argocd.yaml
+kubectl apply -f argocd/argocd.yaml -n argocd
 
 
 #
