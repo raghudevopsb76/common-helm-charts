@@ -27,3 +27,15 @@ echo '{
 
 aws route53 change-resource-record-sets --hosted-zone-id Z0021413JFIQEJP9ZO9Z --change-batch file:///tmp/record.json | jq
 done
+
+kubectl run argocd-cli --image=rkalluru/debug:centos8
+while true ; do
+  ST=$(kubectl get pods | grep argocd-cli  | awk '{print $3}')
+  if [ "$ST" == "Running" ]; then
+    break
+  fi
+  sleep 5
+done
+
+kubectl exec -it argocd-cli -- curl -sSL -o /tmp/argocd-linux-amd64 https://github.com/argoproj/argo-cd/releases/latest/download/argocd-linux-amd64
+kubectl exec -it argocd-cli -- install -m 555 /tmp/argocd-linux-amd64 /usr/local/bin/argocd
