@@ -12,7 +12,7 @@ kubectl apply -f argocd/argocd.yaml -n argocd
 
 DNS=$(kubectl get svc | grep LoadBalancer | awk '{print $4}')
 
-for i in argocd ; do
+for i in argocd frontend-dev ; do
 echo '{
   "Comment": "Created Server - Private IP address - IPADDRESS , DNS Record - COMPONENT-dev.DOMAIN_NAME",
   "Changes": [{
